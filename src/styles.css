@@ -1,1 +1,135 @@
 /* You can add global styles to this file, and also import other style files */
+html,
+body {
+	height: 100%;
+}
+
+body {
+	margin: 0;
+	/*background: linear-gradient(45deg, #49a09d, #5f2c82);*/
+	font-family: sans-serif;
+	/*font-weight: 100;*/
+	font-size:15px;
+	color:black;
+	background:whitesmoke;
+}
+
+.container {
+	position: absolute;
+	top: 54%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+}
+
+.flex-container {
+	display: flex;
+	flex-wrap: wrap;
+	background: linear-gradient(45deg, #445, #334);
+	margin:30px;
+	border-radius: 18px;
+	align-items:center;
+	justify-content: center;
+	color:whitesmoke;
+}
+  
+.flex-item {
+	background: linear-gradient(45deg, #000, #222);
+	width: 300px;
+	height: 265px;
+	margin: 8px;
+	text-align: center;
+	/*line-height: 75px;*/
+	font-size: 14px;
+	padding:8px;
+	border-radius: 18px;
+	transition: transform;
+}
+/*
+.flex-item:hover {
+	transform: scale(1.05);
+	z-index:100;
+}
+*/
+.higherPrice {
+	color :#66FF66;
+	font-size: 20px;
+    text-align: right;
+    padding: 10px;
+	position: relative;
+	/*background:black;*/
+	z-index: 10;
+    width: 85px;
+	left: 201px;
+	animation: pulsegreen 0.2s ease-out;
+}
+
+.lowerPrice {
+	color :#FF7777;
+	font-size: 20px;
+    text-align: right;
+    padding: 10px;
+	position: relative;
+	/*background:black;*/
+	z-index: 10;
+    width: 85px;
+	left: 201px;
+	animation: pulsered 0.2s ease-out;
+}
+
+
+@keyframes pulsegreen {
+	0% {
+		color :#fff;
+	}
+	100% {
+		color :#66FF66;
+	}
+  }
+
+
+@keyframes pulsered {
+	0% {
+		color :#fff;
+	}
+	100% {
+		color :#FF7777;
+	}
+  }
+
+.chart {
+	text-align: center;
+	padding: 10px;
+	position: relative;
+	top: -25px;
+	background-image: url(assets/GridBack.png);
+}
+
+.sym {
+	text-align: left;
+    font-size: 23px;
+}
+
+.desc {
+	text-align: left;
+}
+
+.max {
+	position: relative;
+    top: -60px;
+    left: 232px;
+	color: #bbb;
+	text-align:left;
+	font-size:8px;
+	z-index:10;
+}
+
+.min {
+	position: relative;
+    top: -53px;
+    left: 232px;
+	color: #bbb;
+	text-align:left;
+	font-size:8px;
+	z-index:10;
+}
+
