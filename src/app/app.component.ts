@@ -41,7 +41,6 @@ export class AppComponent implements OnInit {
         stockChartData['max'] = Math.max.apply(null, rawPrices);
         stockChartData['min'] = Math.min.apply(null, rawPrices);
 
-
         //Run through and normalize prices to make them fit into chart height
         var min = stockChartData['min'];
         var max = stockChartData['max'];
@@ -50,7 +49,10 @@ export class AppComponent implements OnInit {
         var chartPoints = "";
         var chartx = 0;
         for (var i=0; i<rawPrices.length; i++) {
-          var normalisedPrice = ((rawPrices[i]-min)/diff)*svgChartHeight;
+          var normalisedPrice;
+          if (diff != 0) normalisedPrice = ((rawPrices[i]-min)/diff)*svgChartHeight;
+          else normalisedPrice = 0;
+
           chartPoints += ""+chartx+","+Math.floor(svgChartHeight-normalisedPrice)+"\n";
           chartx = chartx + (svgChartWidth/numPricesInChart);
         }
@@ -67,7 +69,7 @@ export class AppComponent implements OnInit {
         if (stockIndexList[stockJson.sym]!= undefined) {
           var oldPrice = stocksArray[stockIndexList[stockJson.sym]].price;
           stocksArray[stockIndexList[stockJson.sym]] = stockJson;
-          stockJson.chart = addPriceToChart(stockJson.sym, stockJson.price); //chart;
+          stockJson.chart = addPriceToChart(stockJson.sym, stockJson.price); 
 
           //See if new price is higher or lower
           if (oldPrice > stockJson.price) {
